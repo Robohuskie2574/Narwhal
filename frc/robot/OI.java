@@ -24,7 +24,6 @@ public class OI {
   // Joystick stick = new Joystick(port);
   // Button button = new JoystickButton(stick, buttonNumber)
   Joystick stick = new Joystick(0);
-  
 
   double buffer = 0.2, speed = 0.8; 
   public double get_x(){
@@ -67,3 +66,4 @@ public class OI {
   // until it is finished as determined by it's isFinished method.
   // button.whenReleased(new ExampleCommand());
 }
+//this is something
