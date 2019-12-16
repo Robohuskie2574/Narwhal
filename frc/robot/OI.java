@@ -7,6 +7,10 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
+
+import java.lang.*; 
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -18,8 +22,31 @@ public class OI {
   // You create one by telling it which joystick it's on and which button
   // number it is.
   // Joystick stick = new Joystick(port);
-  // Button button = new JoystickButton(stick, buttonNumber);
+  // Button button = new JoystickButton(stick, buttonNumber)
+  Joystick stick = new Joystick(0);
+  
 
+  double buffer = 0.2, speed = 0.8; 
+  public double get_x(){
+    if (Math.abs(stick.getX()) > buffer){
+      return -stick.getX() * speed;
+    } else {
+      return 0;
+    }
+  }
+  public double get_y(){
+    if (Math.abs(stick.getY()) > buffer){
+      return stick.getY() * speed; 
+    } else {
+      return 0;
+    }
+  }
+
+// TODO: Add twist movement in addition to y-axis 
+
+  public double get_twist(){
+    return stick.getTwist(); 
+  }
   // There are a few additional built in buttons you can use. Additionally,
   // by subclassing Button you can create custom triggers and bind those to
   // commands the same as any other Button.
